@@ -1,0 +1,63 @@
+<{%extends 'base.html'%}
+{%block title%}
+This is Profile title
+{% endblock title%}
+{% block body%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+
+
+ <style>
+       .success{
+          size=10;
+          color:red;
+          }
+    </style>
+<body>
+<
+
+
+    <center>
+
+<h3>You have following payment modes:</h3>
+        <table border="4" >
+            <tr>
+                <th>
+                    <a href="">PayTm</a>
+                </th>
+                <td>
+                    ........                   ............
+                </td>
+            </tr>
+             <tr>
+                <th>
+                    <a href="">Credit/Debit Card</a>
+                </th>
+                 <td>
+                    .........                    .........
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <a href="">Netbanking</a>
+                </th>
+                <td>
+                    .........                      ........
+                </td>
+            </tr>
+        </table>
+
+
+
+
+
+ </center>
+<a href="{% url 'profile2' %}"><< Previous  </a><br>
+<a href="{% url 'user_logout' %}">Logout  </a>
+{% endblock body%}
+
+</form>
+</body>

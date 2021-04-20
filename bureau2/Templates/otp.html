@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{% block title %}
+This is otp title
+{% endblock title %}
+{% block body%}
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    {% if messages %}
+              {{ message }}
+    {% endif %}
+<center>
+    Enter OTP sent to your mobile {{mobile}}
+    OTP: <input type="text" name="otp"><br>
+    Don't have account:  <a href="{% url 'sign_up' %}">Sign Up </a>
+     <input type="submit" value="submit">
+</center>
+</form>
+
+{% endblock body%}
+
+
+

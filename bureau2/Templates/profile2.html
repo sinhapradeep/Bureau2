@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{%block title%}
+This is Profile title
+{% endblock title%}
+{% block body%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+
+
+ <style>
+       .success{
+          size=10;
+          color:red;
+          }
+    </style>
+<body>
+<form action="/profile2" method="post">
+    {% csrf_token %}
+
+
+<h1>Student's Profile Page 2</h1>
+    <center>
+     <h2>Hey, You have opted for the class {{std}}th, subject ={{sub}} on  {{cour}} basis<br>
+        you have to pay Rs.{{amt}}<br>
+and Total amount is = {{tot}}</h2>
+<a href="{% url 'payment' %}">Payment  </a><br>
+<a href="{% url 'timeT' %}">Your Schedule  </a>
+ </center>
+    <a href="{% url 'profile' %}"><< Previous  </a><br>
+    <a href="{% url 'payment' %}">Next >> </a><br>
+<a href="{% url 'user_logout' %}">Logout  </a>
+{% endblock body%}
+
+</form>
+</body>

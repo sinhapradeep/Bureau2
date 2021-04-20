@@ -1,0 +1,52 @@
+{%extends 'base.html'%}
+{% block title %}
+This is about title
+{% endblock title %}
+{% block body%}
+
+
+<div class="container-fluid">
+       <div class="border rounded p-4 m-4">
+        <p class="display-4">Your Schedule</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sno.</th>
+                    <th>Class</th>
+                    <th>Subject</th>
+                    <th>Mon</th>
+                    <th>Tues</th>
+                    <th>Wed</th>
+                    <th>Thurs</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
+                </tr>
+            </thead>
+            <tbody>
+                  {%  for time in times %}
+                    <tr><td>{{forloop.counter0}}</td>
+                        <td>{{time.stand}}</td>
+                     <td>{{time.subject}}</td>
+                    <td>{{time.mon}}</td>
+                    <td>{{time.tues}}</td>
+                    <td>{{time.wed}}</td>
+                    <td>{{time.thurs}}</td>
+                    <td>{{time.fri}}</td>
+                    <td>{{time.sat}}</td>
+                    <td>{{time.sun}}</td>
+                    </tr>
+
+                {% endfor %}
+            </tbody>
+       </table>
+
+     </div>
+</div>
+
+<a href="{% url 'index' %}"><< Previous  </a><br>
+<a href="{% url 'profile2' %}">Next >> </a><br>
+<a href="{% url 'user_logout' %}">Logout  </a>
+{% endblock body %}
+

@@ -1,0 +1,108 @@
+{%extends 'base.html'%}
+{%block title%}
+This is Profile title
+{% endblock title%}
+{% block body%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+
+
+ <style>
+       .success{
+          size=10;
+          color:red;
+          }
+    </style>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+
+
+<h1>Student's Profile Page</h1>
+    <center>
+<h2>Hello!!!....{{name}}</h2><br>
+
+        <h5>   Please give details for the courses you want to apply:</h5><br><br>
+    Candidate's No.:   <input  type="text" name="cno" value={{user.id}}>
+Select Your Board :
+<select name="board">
+    <option value=" ">Select..</option>
+    <option value="CBSE">CBSE</option>
+    <option value="ICSE">ICSE</option>
+    <option value="State">State Board</option>
+ </select>
+School/College: <input type="text" name="school" ><br><br>
+Select Your Class :
+<select name="stand">
+    <option value= >Select..</option>
+    <option value=6>6</option>
+    <option value=7>7</option>
+    <option value=8>8</option>
+    <option value=9>9</option>
+    <option value=10>10</option>
+    <option value=11>11</option>
+    <option value=12>12</option>
+</select>
+   Select Your Subject :
+<select name="subject">
+    <option value="  ">Select..</option>
+    <option value="Maths">Maths</option>
+    <option value="Science-Physics">Science-Physics</option>
+    <option value="Science-Chemistry">Science-Chemistry</option>
+    <option value="Science-Biology">Science-Biology</option>
+    <option value="Physics">Physics</option>
+    <option value="Chemistry">Chemistry</option>
+    <option value="Biology">Biology</option>
+    <option value="Computer Sc.">Computer Sc.</option>
+    <option value="Business Studies">Business Studies</option>
+    <option value="Accountancy">Accountancy</option>
+</select>
+
+Select Your Course Type :
+<select name="course">
+    <option value=" ">Select..</option>
+    <option value="Yearly">Yearly</option>
+    <option value="Term">Term</option>
+    <option value="Monthly">Monthly</option>
+ </select> <br><br>
+Contact Address: <input type="text" name="address" >
+Contact No.: <input type="text" name="phone" >
+<a href="{% url 'profile2' %}">Fee  </a>
+</center>
+    <input type="submit" value="Submit" >
+{% if messages %}
+    {% for message in messages %}
+       <small {{ message.tags }} class="{{ message.tags }} " >
+          {{ message }}</small>
+    {% endfor %}
+    {% endif %}
+
+    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="{% url 'index' %}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="{% url 'index' %}">1</a></li>
+    <li class="page-item"><a class="page-link" href="{% url 'profile2' %}">2</a></li>
+    <li class="page-item"><a class="page-link" href="{% url 'user_logout' %}">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="{% url 'profile2' %}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<a href="{% url 'index' %}"><< Previous  </a><br>
+    <a href="{% url 'profile2' %}">Next >> </a><br>
+<a href="{% url 'user_logout' %}">Logout  </a>
+
+
+{% endblock body%}
+
+</form>
+</body>
